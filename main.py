@@ -110,10 +110,10 @@ async def predict_loan(request: Request):
     data = await request.json()  # Récupérer les données JSON envoyées
 
     input_dict = {
-        'Gender': data['gender'],
-        'Married': data['married'],
-        'Dependents': data['dependents'],
-        'Education': data['education'],
+        'Gender': data['Gender'],
+        'Married': data['Married'],
+        'Dependents': data['Dependents'],
+        'Education': data['Education'],
         'Self_Employed': data['Self_Employed'],
         'ApplicantIncome': data['ApplicantIncome'],
         'CoapplicantIncome': data['CoapplicantIncome'],
@@ -122,7 +122,7 @@ async def predict_loan(request: Request):
         'Credit_History': data['Credit_History'],
         'Property_Area': data['Property_Area']
     }
-    
+
     input_df = pd.DataFrame([input_dict])
     input_scaled = scaler.transform(input_df)
     prediction = model.predict(input_scaled)
