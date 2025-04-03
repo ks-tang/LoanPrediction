@@ -19,19 +19,19 @@ jobs:
                 python-version: 3.9
 
             - name: Install Dependencies
-              run: 
+              run: |
                 python -m pip install --upgrade pip
                 pip install -r requirements.txt
 
             - name: Test Application
-              run :
+              run : |
                 pytest # Pytest detecte les fichiers commencant par 'test_'
 
             # - name: Deploy to Heroku
             #   env:
             #     HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
             #     HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-            #   run: 
+            #   run: |
             #     echo "Deploying to Heroku..."
             #     heroku container:login
             #     heroku container:push web --app $HEROKU_APP_NAME
