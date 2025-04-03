@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Loan Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container" id="predict">
+        <h1>Predict Loan Approval</h1>
+        <!--Formulaire pour le input-->
+        <form onsubmit="submitForm(event)">
+            <label for="gender">Gender :</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+
+            <label for="married">Are you married :</label>
+            <select id="married" name="married" required>
+                <option value="" disabled selected></option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="dependents">Dependents :</label>
+            <input type="number" step=1 id="dependents" name="dependents" required>
+
+            <label for="education">Education :</label>
+            <select id="education" name="education" required>
+                <option value="" disabled selected></option>
+                <option value="0">Not graduated</option>
+                <option value="1">Graduated</option>
+            </select>
+
+            <label for="Self_Employed">Are you Self Employed :</label>
+            <select id="Self_Employed" name="Self_Employed" required>
+                <option value="" disabled selected></option>
+                <option value="0">Not Self Employed</option>
+                <option value="1">Self Employed</option>
+            </select>
+
+            <label for="ApplicantIncome">Applicant Income :</label>
+            <input type="number" step=1 id="ApplicantIncome" name="ApplicantIncome" required>
+
+            <label for="CoapplicantIncome">Coapplicant Income :</label>
+            <input type="number" step=1 id="CoapplicantIncome" name="CoapplicantIncome" required>
+
+            <label for="LoanAmount">Loan Amount :</label>
+            <input type="number" step=1 id="LoanAmount" name="LoanAmount" required>
+
+            <label for="Loan_Amount_Term">Loan Amount Term :</label>
+            <input type="number" step=1 id="Loan_Amount_Term" name="Loan_Amount_Term" required>
+
+            <label for="Credit_History">Credit History :</label>
+            <select id="Credit_History" name="Credit_History" required>
+                <option value="" disabled selected></option>
+                <option value="0">Not Credit History</option>
+                <option value="1">Credit History</option>
+            </select>
+
+            <label for="Property_Area">Property Area :</label>
+            <select id="Property_Area" name="Property_Area" required>
+                <option value="" disabled selected></option>
+                <option value="0">Rural</option>
+                <option value="1">Semi Rural</option>
+                <option value="2">Urban</option>
+            </select>
+
+            <button type="submit" class="button">Predict</button>
+        </form>
+
+        <!--Balise pour mettre le résultat-->
+        <div id="prediction"></div>
+    </div>
+
+    <script>
+        async function submitForm(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = {};
+
+            // Convertir FormData en JSON
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Envoie les données à FastAPI via une requete post
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            // Recevoir la reponse JSON et afficher le resultat
+            const result = await response.json();
+            document.getElementById("prediction").innerText = "Predicted Loan : " + result.prediction;
+        }
+    </script>
+</body>
+</html>

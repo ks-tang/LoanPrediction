@@ -1,0 +1,15 @@
+# Ignorer les fichiers et dossiers inutiles
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.log
+
+# Ignorer les dossiers spécifiques
+.git/
+.gitignore
+.vscode/
+node_modules/
+data/
+venv/
