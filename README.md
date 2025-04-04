@@ -4,7 +4,7 @@
 Ce projet est une application de **machine learning** déployée via une **API FastAPI**, qui permet de prédire si une demande de prêt bancaire sera **approuvée** ou **refusée**.  
 L'application propose une interface simple sous forme de **formulaire HTML**, avec traitement en temps réel grâce à un modèle entraîné sur des données historiques.
 
-L'application est disponible ici : https://loanprediction-wpcl.onrender.com/
+Accédez à l’application ici (si active) : https://loanprediction-wpcl.onrender.com/
 
 ## 🚀 Fonctionnalités
 
