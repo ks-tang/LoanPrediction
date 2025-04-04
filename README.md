@@ -41,16 +41,27 @@ L'algorithme est entraîné sur des caractéristiques classiques de demande de p
 
 loan-predictor/
 ├── main.py               # Application FastAPI
+
 ├── training/                # Fichier de training du model + model.pkl + scaler.pkl
+
 ├── static/               # Contient les fichiers HTML (index + formulaire + css)
+
 ├── training/                # Fichiers de training du model + model.pkl + scaler.pkl
+
 ├── images/ 
+
 ├── Dockerfile
+
 ├── requirements.txt        # Fichier liste des librairies requises
+
 ├── test_app.py           # Fichier de test de l'application
+
 ├── test.unit.py            # Fichier de test du model
+
 ├── .dockerignore
+
 ├── .gitignore
+
 └── README.md
 
 ---
