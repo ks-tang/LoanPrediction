@@ -39,7 +39,8 @@ L'algorithme est entraîné sur des caractéristiques classiques de demande de p
 
 ## 📁 Structure du projet
 
-loan-predictor/
+LoanPrediction/
+
 ├── main.py               # Application FastAPI
 
 ├── training/                # Fichier de training du model + model.pkl + scaler.pkl
