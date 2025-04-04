@@ -29,3 +29,5 @@ build/
 # Fichiers spécifiques aux IDE et OS
 .vscode/
 *.code-workspace
+
+.devcontainer/
